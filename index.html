@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Lift</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #002f5f;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    .section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .image-banner {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+    }
+    .video-section {
+      text-align: center;
+      padding: 2rem;
+      background-color: #ffffff;
+    }
+    .video-section h2 {
+      color: #002f5f;
+      margin-bottom: 1rem;
+    }
+    .donate {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: linear-gradient(to right, #ffe600, #ffd100);
+      color: #002f5f;
+    }
+    .donate h2 {
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    .donate code {
+      background-color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+    .footer {
+      background-color: #006400;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+    .profile {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .profile img {
+      width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .profile-text {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Project Lift</h1>
+    <p>Empowering Young Lives Through Hope, Play & Compassion</p>
+  </header>
+
+  <img src="banner-mature.jpg" alt="Project Lift Banner" class="image-banner" />
+
+  <div class="video-section">
+    <h2>See Project Lift in Action</h2>
+    <video width="100%" height="400" controls>
+      <source src="kids-playing-and-learning.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="section">
+    <div class="profile">
+      <img src="kids-smiling.jpg" alt="Happy kids">
+      <div class="profile-text">
+        <p>
+          <strong>Project Lift</strong> is a beacon of hope for children who face life’s toughest battles. 
+          It provides emotional comfort, physical activities, and mental stimulation for kids in therapy.
+          Through reading, recreation, and sports like basketball, soccer, and volleyball, Project Lift nurtures their spirits
+          and helps them thrive despite challenges.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="profile">
+      <img src="channing-mana.jpg" alt="Channing and Mana">
+      <div class="profile-text">
+        <p>
+          <strong>Inspired by Channing Tatum</strong> and his late young friend <strong>Mana</strong>, 
+          a joyful boy who faced brain cancer with bravery and light, Project Lift was born to carry his legacy. 
+          Mana's unshakable smile and bond with Channing moved hearts. 
+          Today, this friendship lives on through a mission to help other children find strength, friendship, and joy.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="donate">
+    <h2>Support Project Lift</h2>
+    <p>Your contribution can change a life. Donate Bitcoin below:</p>
+    <code id="btc-address">[Your Bitcoin Address Here]</code>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2025 Project Lift | Designed to Uplift Every Child's Spirit</p>
+  </div>
+
+  <script>
+    // Fetch Bitcoin address from backend API
+    fetch('/api/btc-address')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('btc-address').textContent = data.address || '[No Address Set]';
+      });
+  </script>
+</body>
+</html>
